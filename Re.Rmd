@@ -1,0 +1,58 @@
+---
+title: Patients Results Report
+output: pdf_document
+params:
+    results: NA
+---
+This report to review our patient result 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, , echo=FALSE, paged.print=FALSE}
+
+# library(RSQLite)
+# library(dplyr)
+# db <- dbConnect(SQLite(), "./database/database.sqlite3")
+# 
+# alltables = dbListTables(db)
+
+#use result file here
+df = params[["results"]]
+```
+
+
+```{r , echo=FALSE}
+cat("Total HDL test ") 
+sum( df$Test_Name == "HDL")
+cat("Total Triglycerides test ")
+sum( df$Test_Name == "Triglycerides")
+cat("Total LDL test ")
+sum( df$Test_Name == "LDL")
+```
+
+
+
+```{r , echo=FALSE}
+
+hist(df$Result[df$Test_Name == "Triglycerides"], main="Painet Result for Triglycerides",
+xlab="Triglycerides Level ",
+col="gray",
+border="black"
+)
+
+hist(df$Result[df$Test_Name == "LDL"], main="Painet Result for LDL",
+xlab="LDL Level ",
+col="gray",
+border="black"
+)
+
+hist(df$Result[df$Test_Name == "HDL"], main="Painet Result for HDL",
+xlab="HDL Level ",
+col="gray",
+border="black"
+)
+
+```
+
+
+
+
+
