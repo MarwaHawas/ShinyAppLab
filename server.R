@@ -7,6 +7,7 @@ library(DBI)
 library(RSQLite)
 library(DT)
 library(glue)
+library(rsconnect)
 
 db <- dbConnect(SQLite(), "./database/database.sqlite3")
  credentials <- tbl(db, "credentials") %>% collect()
@@ -555,3 +556,8 @@ shinyServer(function(input, output, session) {
     }
   })  
 })
+
+rsconnect::setAccountInfo(name='marwa-hawas',
+			  token='BD06D4F9FD5FF81A77F88C3974293CCA',
+			  secret='piDmuJHmEbfNmXGvNobcjUDmgKz3/T4qy6VExLu4')
+
