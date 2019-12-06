@@ -1,3 +1,3 @@
 # ShinyAppLab
-Bulid lab website using r shiny
-issue report and using r markdown
+Bulid lab website using rshiny
+and Report  using rmarkdown
